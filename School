@@ -1,0 +1,93 @@
+package schoolManagementSystem;
+
+import java.util.List;
+
+/*
+ * Implements the objects of teachers and students using an ArrayList
+ */
+public class School {
+
+	private List<Teacher> teachers;
+	private List<Student> students;
+	private static int totalMoneySpent;
+	private static int totalMoneyEarned;
+
+	/**
+	 * Cretes a new school object
+	 * 
+	 * @param teachers; list of teachers in the school
+	 * @param students; list of students in the school
+	 */
+	public School(List<Teacher> teachers, List<Student> students) {
+		this.teachers = teachers;
+		this.students = students;
+		totalMoneyEarned = 0;
+		totalMoneySpent = 0;
+	}
+
+	/**
+	 * @return a list of teachers in the school
+	 */
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	/**
+	 * Adds a new teacher to the school
+	 * 
+	 * @param teacher; a new teacher to be added
+	 */
+	public void addTeacher(Teacher teacher) {
+		teachers.add(teacher);
+	}
+
+	/**
+	 * @return a list of students in the school
+	 */
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	/**
+	 * Adds a new student to the school
+	 * 
+	 * @param student; a new student to be added
+	 */
+	public void addStudent(Student student) {
+		students.add(student);
+	}
+
+	/**
+	 * @return the total money earned by the school
+	 */
+	public int getTotalMoneyEarned() {
+		return totalMoneyEarned;
+	}
+
+	/**
+	 * Adds the amount of money earned by the school
+	 * 
+	 * @param MoneyEarned money that is needed to add to the school
+	 */
+	public static void updateTotalMoneyEarned(int moneyEarned) {
+		totalMoneyEarned += moneyEarned;
+	}
+
+	/**
+	 * @return the amount of money spent by the school
+	 */
+	public int getTotalMoneySpent() {
+		return totalMoneySpent;
+	}
+
+	/**
+	 * updates the amount of money spent by the school which is the salary of the
+	 * teachers of the school
+	 * 
+	 * @param totalMoneySpent; money that is spent by the school
+	 */
+	public static void updateTotalMoneySpent(int moneySpent) {
+		totalMoneyEarned -= moneySpent;
+	}
+
+}
