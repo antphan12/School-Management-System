@@ -1,0 +1,104 @@
+package schoolManagementSystem;
+
+/*
+ * Keeps track of all student's information(id, name, grade, etc.)
+ */
+public class Student {
+
+	private int id;
+	private String name;
+	private int grade;
+	private int feesPaid;
+	private int feesTotal;
+
+	/*
+	 * A constructor that creates a new student object Fees applied to every new
+	 * student will be $30,000
+	 * 
+	 * @param id; a unique ID for the student
+	 * 
+	 * @param name; the name of the student
+	 * 
+	 * @param grade the grade the student is in
+	 */
+	public Student(int id, String name, int grade) {
+		this.feesPaid = 0;
+		this.feesTotal = 30000;
+		this.id = id;
+		this.name = name;
+		this.grade = grade;
+
+	}
+
+	/*
+	 * Updates the grade of the student
+	 * 
+	 * @param grade; the grade in which the student is in
+	 */
+	public void setGrade() {
+		this.grade = grade;
+	}
+
+	/*
+	 * Update the fees or adds to the fees paid A way that the school earns money
+	 * 
+	 * @param fees
+	 */
+	public void payFees(int fees) {
+		feesPaid = +fees;
+		School.updateTotalMoneyEarned(feesPaid);
+	}
+
+	/*
+	 * @return the ID of the student
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/*
+	 * @return the name of the student
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/*
+	 * @return the grade of the students
+	 */
+	public int getGrade() {
+		return grade;
+	}
+
+	/*
+	 * @return fees that have already been paid by the student
+	 */
+	public int getFeesPaid() {
+		return feesPaid;
+	}
+
+	/*
+	 * @return total fees of the student
+	 */
+	public int getFeesTotal() {
+		return feesTotal;
+	}
+
+	/**
+	 * Pays the amount in fees to the school
+	 * 
+	 * @param fees; the fees that the student has to pay
+	 */
+
+	/**
+	 * @return the remianing fees the student has to pay
+	 */
+	public int getRemainingFees() {
+		return feesTotal - feesPaid;
+	}
+	
+	@Override
+	public String toString() {
+		return "Student's name: " + name + " Total fess paid so far is $" + feesPaid ;
+		}
+}
