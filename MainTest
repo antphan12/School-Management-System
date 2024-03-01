@@ -1,0 +1,45 @@
+package schoolManagementSystem;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Teacher Martin = new Teacher(1, "Martin", 500);
+		Teacher Smith = new Teacher(2, "Smith", 1000);
+		Teacher Howe = new Teacher(3, "Howe", 700);
+
+		List<Teacher> teacherList = new ArrayList<>();
+		teacherList.add(Martin);
+		teacherList.add(Smith);
+		teacherList.add(Howe);
+
+		Student Anthony = new Student(1, "Anthony", 6);
+		Student Quynh = new Student(2, "Quynh", 12);
+		Student Kevin = new Student(3, "Kevin", 1);
+
+		List<Student> studentList = new ArrayList<>();
+		studentList.add(Anthony);
+		studentList.add(Quynh);
+		studentList.add(Kevin);
+
+		School ISU = new School(teacherList, studentList);
+		Anthony.payFees(5000);
+		Quynh.payFees(5000);
+		System.out.println("ISU has earned $" + ISU.getTotalMoneyEarned());
+
+		System.out.println("-----TEACHER'S SALARY-----");
+		Martin.receiveSalary(Martin.getSalary());
+		System.out.println("ISU has spent for salary to " + Martin.getName() + " and now has $" + ISU.getTotalMoneyEarned());
+		Smith.receiveSalary(Smith.getSalary());
+		System.out.println("ISU has spent for salary to " + Smith.getName() + " and now has $" + ISU.getTotalMoneyEarned());
+		
+		System.out.println(Anthony);//prints out the information about the fees paid so far
+		
+		Howe.receiveSalary(1000);//gives a new salary to the teacher
+		System.out.println(Howe);//prints out the salary for this teacher
+
+	}
+
+}
